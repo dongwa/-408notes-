@@ -1,5 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
 
 #define EleType int   //数据类型宏
 #define maxSize 20    //最大数据量宏
@@ -47,7 +49,7 @@ bool ListDelete(sqList &list, int i, EleType &e) {
 // 返回表中i(i>=1)处位置的元素,平均时间复杂度O(1)
 EleType GetElem(sqList list, int i) {
   // i~[1,list.length]否则为不合法数据
-  if (i <= 0 && i > list.length) return NULL;
+  if (i <= 0 && i > list.length) return -1;
   return list.data[i - 1];
 }
 
@@ -63,10 +65,11 @@ int main() {
   sqList list;
   InitList(list);
   for (int i = 0; i < 10; i++) ListInsert(list, i + 1, i * i);
-  for (int i = 0; i < list.length; i++) printf("%d ", list.data[i]);
+  for (int i = 0; i < list.length; i++) cout << list.data[i] << " ";
   int e = -1;
   ListDelete(list, 2, e);
+  cout << e << endl;
   printf("\n%d\n", e);
-  for (int i = 0; i < list.length; i++) printf("%d ", list.data[i]);
+  for (int i = 0; i < list.length; i++) cout << list.data[i] << " ";
   return 0;
 }
