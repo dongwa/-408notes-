@@ -56,7 +56,7 @@ int GetLastOf(sqList list, EleType e) {
   for (int i = 0; i < list.length; i++) {
     if (list.data[i] == e) return i + 1;
   }
-  return -1
+  return -1;
 }
 
 int main() {
